@@ -1,0 +1,10 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "tic-tac-toe:lib"
+
+    - path: "./app/Main.hs"
+      component: "tic-tac-toe:exe:tic-tac-toe-exe"
+
+    - path: "./test"
+      component: "tic-tac-toe:test:tic-tac-toe-test"

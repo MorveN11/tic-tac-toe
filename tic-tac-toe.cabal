@@ -1,0 +1,55 @@
+cabal-version:      3.0
+name:               tic-tac-toe
+version:            0.1.0.0
+description:
+  Please see the README on GitHub at <https://github.com/MorveN11/tic-tac-toe#readme>
+
+homepage:           https://github.com/MorveN11/tic-tac-toe#readme
+author:             Manuel Morales
+maintainer:         morales.patty.jose@gmail.com
+copyright:          2024 MorveN11
+license:            MIT
+license-file:       LICENSE
+build-type:         Simple
+extra-source-files: README.md
+
+source-repository head
+  type:     git
+  location: https://github.com/MorveN11/tic-tac-toe
+
+common configuration
+  ghc-options:
+    -Wall -Wcompat -Widentities -Wincomplete-record-updates
+    -Wincomplete-uni-patterns -Wmissing-export-lists
+    -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+    -haddock
+
+  build-depends:    base >=4.7 && <5
+  default-language: Haskell2010
+
+common executable-configuration
+  ghc-options:   -threaded -rtsopts -with-rtsopts=-N
+  build-depends: tic-tac-toe
+
+library
+  import:          configuration
+  exposed-modules: Lib
+  hs-source-dirs:  src
+
+executable tic-tac-toe-exe
+  import:
+    configuration,
+    executable-configuration
+
+  main-is:        Main.hs
+  hs-source-dirs: app
+
+test-suite tic-tac-toe-test
+  import:
+    configuration,
+    executable-configuration
+
+  type:           exitcode-stdio-1.0
+  main-is:        Spec.hs
+  hs-source-dirs: test
+  build-depends:  QuickCheck
