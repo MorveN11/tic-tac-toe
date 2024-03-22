@@ -24,7 +24,11 @@ common configuration
     -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
     -haddock
 
-  build-depends:    base >=4.7 && <5
+  build-depends:
+    , base        >=4.7 && <5
+    , containers
+    , split
+
   default-language: Haskell2010
 
 common executable-configuration
