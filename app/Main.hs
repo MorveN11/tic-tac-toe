@@ -1,6 +1,8 @@
 module Main (main) where
 
-import Lib
+import Ui.TicTacToe (playGame)
+
+-- import Console.TicTacToe (playGame) Uncomment this line to play the game in the console
 
 main :: IO ()
-main = someFunc
+main = playGame
